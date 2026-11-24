@@ -1,0 +1,28 @@
+# Environment of the notebooks, with the versions used for the paper.
+#   conda env create -f environment.yml
+#   conda activate ai-ecg-age-repeatability
+#   python -m ipykernel install --user --name ai-ecg-age-repeatability
+# Notebooks 03 and 04 need an NVIDIA graphics card (the PyTorch build below is for CUDA 12.8). On a computer without one, remove the
+# --extra-index-url line and the "+cu128" of the torch line; notebooks 00-02 and 05-08 do not use the graphics card.
+name: ai-ecg-age-repeatability
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu128
+      - torch==2.11.0+cu128
+      - numpy==2.5.4
+      - pandas==2.3.3
+      - pyarrow==26.0.1
+      - scipy==1.18.1
+      - scikit-learn==1.9.1
+      - matplotlib==3.11.2
+      - h5py==3.16.0
+      - wfdb==4.3.1
+      - transformers==4.57.6
+      - safetensors==0.8.0
+      - huggingface_hub==0.36.2
+      - jupyterlab        # any recent version
+      - ipykernel         # any recent version
